@@ -117,6 +117,13 @@ def generate_schema(row):
         ],
         "hasVariant": []
     }
+    # Key Benefits add karo agar hai to
+    if 'key_benefits' in row and not pd.isna(row['key_benefits']):
+        schema["additionalProperty"].append({
+            "@type": "PropertyValue",
+            "name": "Key Benefits",
+            "value": row['key_benefits']
+        })
     for i in range(1, 10):
         variant = make_variant(row, i)
         if variant:
