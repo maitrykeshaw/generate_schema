@@ -3,7 +3,7 @@ import json
 import os
 from datetime import datetime
 
-def make_variant(row, idx):
+def make_variant(row, idx, discount):
     name = row.get(f'variant{idx}_name')
     sku = row.get(f'variant{idx}_sku')
     gtin13 = row.get(f'variant{idx}_gtin13')
@@ -42,6 +42,10 @@ def make_variant(row, idx):
             "price": str(actual_price),
             "priceType": "RRP"  # Recommended Retail Price
         }
+
+    # Add discount if available
+    if discount and not pd.isna(discount):
+        offer["discount"] = str(discount)
 
     if shippingCountry and shippingCurrency and shippingValue:
         offer["shippingDetails"] = {
@@ -88,6 +92,25 @@ def make_variant(row, idx):
     }
 
 def generate_schema(row):
+    # Prepare manufacturer info
+    manufacturer_info = None
+    if not pd.isna(row.get('manufacturer_name')):
+        manufacturer_info = {
+            "@type": "Organization",
+            "name": row.get('manufacturer_name')
+        }
+        if not pd.isna(row.get('manufacturer_logo')):
+            manufacturer_info["logo"] = row.get('manufacturer_logo')
+
+    # Prepare audience
+    audience = None
+    if not pd.isna(row.get('suitable_for')):
+        audience = {
+            "@type": "PeopleAudience",
+            "suggestedAgeMin": 18,  # Default (customize as needed)
+            "suggestedGender": row.get('suitable_for')
+        }
+
     schema = {
         "@context": "https://schema.org/",
         "@type": "ProductGroup",
@@ -117,8 +140,29 @@ def generate_schema(row):
         ],
         "hasVariant": []
     }
+
+    # Add discount at product group level if present
+    if not pd.isna(row.get('discount')):
+        schema["discount"] = str(row.get('discount'))
+
+    # Add manufacturer info if present
+    if manufacturer_info:
+        schema["manufacturer"] = manufacturer_info
+
+    # Add audience if present
+    if audience:
+        schema["audience"] = audience
+
+    # Add production date if present
+    if not pd.isna(row.get('production_date')):
+        schema["productionDate"] = str(row.get('production_date'))
+
+    # Add expiration date if present
+    if not pd.isna(row.get('expiration_date')):
+        schema["expirationDate"] = str(row.get('expiration_date'))
+
     for i in range(1, 10):
-        variant = make_variant(row, i)
+        variant = make_variant(row, i, row.get('discount'))
         if variant:
             schema["hasVariant"].append(variant)
     return schema
