@@ -2,8 +2,8 @@
 {
   "@context": "https://schema.org/",
   "@type": "ProductGroup",
-  "productGroupID": "Zoracel Dental Gummy3-1001",
-  "name": "Zoracel Dental Gummy3",
+  "productGroupID": "Zoracel Dental Gummy-1001",
+  "name": "Zoracel Dental Gummy",
   "description": "Zoracel Dental Gummy is a scientifically proven candy with potent minerals and strains.",
   "image": "https://zoracel-dental-gummy.vercel.app/hosted/zoracel-dental-gummy.webp",
   "thumbnailUrl": "https://zoracel-dental-gummy.vercel.app/hosted/zoracel-dental-gummy.webp",
@@ -12,8 +12,8 @@
     "name": "Zoracel Dental Gummy",
     "logo": "https://zoracel-dental-gummy.vercel.app/hosted/brand-logo.png"
   },
-  "sku": "TUPI-004",
-  "mpn": "TUPITEA-1004",
+  "sku": "TUPI-001",
+  "mpn": "TUPITEA-1001",
   "gtin13": 1230000000000.0,
   "category": "Men's Health Supplements",
   "additionalProperty": [
@@ -25,7 +25,7 @@
     {
       "@type": "PropertyValue",
       "name": "Net Quantity",
-      "value": "33 day supply"
+      "value": "30 day supply"
     },
     {
       "@type": "PropertyValue",
@@ -43,7 +43,7 @@
       "offers": {
         "@type": "Offer",
         "priceCurrency": "USD",
-        "price": "72",
+        "price": "69.0",
         "priceValidUntil": "2025-12-31",
         "availability": "https://schema.org/InStock",
         "itemCondition": "https://schema.org/NewCondition",
@@ -51,27 +51,16 @@
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
           "priceCurrency": "USD",
-          "price": "102",
+          "price": "99.0",
           "priceType": "RRP"
         },
-        "discount": "330%",
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingDestination": {
-            "@type": "DefinedRegion",
-            "addressCountry": "US"
-          },
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "value": "3",
-            "currency": "USD"
-          }
-        },
+        "availabilityEnds": "2025-12-31",
+        "discount": "30%",
         "hasMerchantReturnPolicy": {
           "@type": "MerchantReturnPolicy",
           "applicableCountry": "US",
           "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": 63,
+          "merchantReturnDays": 60,
           "returnMethod": "https://schema.org/ReturnByMail",
           "returnFees": "https://schema.org/FreeReturn",
           "refundType": "https://schema.org/FullRefund"
@@ -95,7 +84,7 @@
       "offers": {
         "@type": "Offer",
         "priceCurrency": "USD",
-        "price": "52",
+        "price": "49.0",
         "priceValidUntil": "2025-12-31",
         "availability": "https://schema.org/InStock",
         "itemCondition": "https://schema.org/NewCondition",
@@ -103,27 +92,16 @@
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
           "priceCurrency": "USD",
-          "price": "152",
+          "price": "149.0",
           "priceType": "RRP"
         },
-        "discount": "330%",
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingDestination": {
-            "@type": "DefinedRegion",
-            "addressCountry": "US"
-          },
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "value": "3",
-            "currency": "USD"
-          }
-        },
+        "availabilityEnds": "2025-12-31",
+        "discount": "30%",
         "hasMerchantReturnPolicy": {
           "@type": "MerchantReturnPolicy",
           "applicableCountry": "US",
           "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": 63,
+          "merchantReturnDays": 60,
           "returnMethod": "https://schema.org/ReturnByMail",
           "returnFees": "https://schema.org/FreeReturn",
           "refundType": "https://schema.org/FullRefund"
@@ -147,7 +125,7 @@
       "offers": {
         "@type": "Offer",
         "priceCurrency": "USD",
-        "price": "62",
+        "price": "59.0",
         "priceValidUntil": "2025-12-31",
         "availability": "https://schema.org/InStock",
         "itemCondition": "https://schema.org/NewCondition",
@@ -155,27 +133,16 @@
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
           "priceCurrency": "USD",
-          "price": "132",
+          "price": "129.0",
           "priceType": "RRP"
         },
-        "discount": "330%",
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingDestination": {
-            "@type": "DefinedRegion",
-            "addressCountry": "US"
-          },
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "value": "3",
-            "currency": "USD"
-          }
-        },
+        "availabilityEnds": "2025-12-31",
+        "discount": "30%",
         "hasMerchantReturnPolicy": {
           "@type": "MerchantReturnPolicy",
           "applicableCountry": "US",
           "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": 63,
+          "merchantReturnDays": 60,
           "returnMethod": "https://schema.org/ReturnByMail",
           "returnFees": "https://schema.org/FreeReturn",
           "refundType": "https://schema.org/FullRefund"
@@ -191,11 +158,14 @@
       }
     }
   ],
+  "url": "https://zoracel-dental-gummy.vercel.app/",
+  "isFamilyFriendly": true,
+  "countryOfOrigin": "US",
   "award": [
     "Doctor Recommended Badge",
-    "Top Health Product 2028"
+    "Top Health Product 2025"
   ],
-  "discount": "330%",
+  "discount": "30%",
   "manufacturer": {
     "@type": "Organization",
     "name": "Zoracel Labs",
@@ -206,12 +176,11 @@
     "suggestedAgeMin": 18,
     "suggestedGender": "Adults"
   },
-  "productionDate": "6/4/2025",
-  "expirationDate": "6/4/2027",
+  "productionDate": "2025-06-01",
+  "expirationDate": "2027-06-01",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://zoracel-dental-gummy.vercel.app/",
     "inLanguage": "en"
   }
-}
-</script>
+}\n</script>

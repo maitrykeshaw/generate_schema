@@ -1,7 +1,16 @@
+from datetime import datetime
 import pandas as pd
 import os
 import json
-from datetime import datetime
+
+# Function to convert date to ISO 8601 format (YYYY-MM-DD)
+def convert_to_iso_format(date_str):
+    try:
+        # Attempt to parse and convert the date from MM/DD/YYYY to YYYY-MM-DD
+        return datetime.strptime(date_str, '%m/%d/%Y').strftime('%Y-%m-%d')
+    except ValueError:
+        # If the format is not correct or it's missing, return it as is
+        return date_str
 
 def make_variant(row, i, discount):
     name = row.get(f"variant{i}_name")
@@ -24,6 +33,10 @@ def make_variant(row, i, discount):
     if pd.isna(name) or name == "":
         return None
 
+    # Check for availabilityEnd date in the row (from CSV) and convert to ISO format
+    availability_end_date = row.get('offer_end_date', '2025-12-31')  # Default to '2025-12-31' if not present
+    availability_end_date = convert_to_iso_format(availability_end_date)  # Convert to ISO format
+
     offer = {
         "@type": "Offer",
         "priceCurrency": "USD",
@@ -40,10 +53,14 @@ def make_variant(row, i, discount):
         }
     }
 
+    # Add availabilityEnd date from CSV or static value in ISO format
+    offer["availabilityEnds"] = availability_end_date
+
     # Add discount if available
     if discount and not pd.isna(discount):
         offer["discount"] = str(discount)
 
+    # Add shipping details
     if shippingCountry and shippingCurrency and shippingValue:
         offer["shippingDetails"] = {
             "@type": "OfferShippingDetails",
@@ -141,7 +158,10 @@ def generate_schema(row):
                 "value": row['net_quantity']
             }
         ],
-        "hasVariant": []
+        "hasVariant": [],
+        "url": "https://zoracel-dental-gummy.vercel.app/",  # Added URL property at ProductGroup level
+        "isFamilyFriendly": True,  # Added isFamilyFriendly property
+        "countryOfOrigin": "US"  # Added countryOfOrigin property (default is "US")
     }
 
     # Add Certifications if present
@@ -168,13 +188,13 @@ def generate_schema(row):
     if audience:
         schema["audience"] = audience
 
-    # Add production date if present
+    # Add production date if present and convert to ISO format
     if not pd.isna(row.get('production_date')):
-        schema["productionDate"] = str(row.get('production_date'))
+        schema["productionDate"] = convert_to_iso_format(str(row.get('production_date')))
 
-    # Add expiration date if present
+    # Add expiration date if present and convert to ISO format
     if not pd.isna(row.get('expiration_date')):
-        schema["expirationDate"] = str(row.get('expiration_date'))
+        schema["expirationDate"] = convert_to_iso_format(str(row.get('expiration_date')))
 
     # Add mainEntityOfPage (URL and language)
     schema["mainEntityOfPage"] = {
@@ -200,5 +220,5 @@ if __name__ == "__main__":
         with open(os.path.join(output_dir, fname), "w", encoding="utf-8") as f:
             f.write('<script type="application/ld+json">\n')
             json.dump(schema, f, ensure_ascii=False, indent=2)
-            f.write('\n</script>')
+            f.write('\\n</script>')
     print(f"Sabhi schema files '{output_dir}' folder me generate ho gayi!")
