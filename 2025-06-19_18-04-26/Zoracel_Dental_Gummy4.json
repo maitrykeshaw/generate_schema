@@ -1,0 +1,217 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "ProductGroup",
+  "productGroupID": "Zoracel Dental Gummy4-1001",
+  "name": "Zoracel Dental Gummy4",
+  "description": "Zoracel Dental Gummy is a scientifically proven candy with potent minerals and strains.",
+  "image": "https://zoracel-dental-gummy.vercel.app/hosted/zoracel-dental-gummy.webp",
+  "thumbnailUrl": "https://zoracel-dental-gummy.vercel.app/hosted/zoracel-dental-gummy.webp",
+  "brand": {
+    "@type": "Brand",
+    "name": "Zoracel Dental Gummy",
+    "logo": "https://zoracel-dental-gummy.vercel.app/hosted/brand-logo.png"
+  },
+  "sku": "TUPI-005",
+  "mpn": "TUPITEA-1005",
+  "gtin13": 1230000000000.0,
+  "category": "Men's Health Supplements",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Ingredients",
+      "value": "Ergocalciferol, Perilla, Oleuropein, Ashwagandha, Kudzu, Propolis, Amur Cork Bark"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Net Quantity",
+      "value": "34 day supply"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Certifications",
+      "value": "FDA Approved Facility, GMP Certified"
+    }
+  ],
+  "hasVariant": [
+    {
+      "@type": "Product",
+      "name": "Zoracel Dental Gummy - 1 Bottle",
+      "sku": "Zoracel-Dental-Gummy-A",
+      "gtin13": 1230000000000.0,
+      "image": "https://zoracel-dental-gummy.vercel.app/hosted/zoracel-dental-gummy-1-bottle.webp",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "73",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://buy-tupitea.vercel.app/variant-1-bottle",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "price": "103",
+          "priceType": "RRP"
+        },
+        "discount": "430%",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "US"
+          },
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "4",
+            "currency": "USD"
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "US",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 64,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/FreeReturn",
+          "refundType": "https://schema.org/FullRefund"
+        },
+        "acceptedPaymentMethod": [
+          "https://schema.org/Visa",
+          "https://schema.org/MasterCard",
+          "https://schema.org/AmericanExpress",
+          "https://schema.org/Discover",
+          "https://schema.org/PayPal",
+          "https://schema.org/CreditCard"
+        ]
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Zoracel Dental Gummy - 6 Bottles",
+      "sku": "Zoracel-Dental-Gummy-B",
+      "gtin13": 1230000000000.0,
+      "image": "https://zoracel-dental-gummy.vercel.app/hosted/zoracel-dental-gummy-6-bottle.webp",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "53",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://buy-tupitea.vercel.app/variant-6-bottles",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "price": "153",
+          "priceType": "RRP"
+        },
+        "discount": "430%",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "US"
+          },
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "4",
+            "currency": "USD"
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "US",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 64,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/FreeReturn",
+          "refundType": "https://schema.org/FullRefund"
+        },
+        "acceptedPaymentMethod": [
+          "https://schema.org/Visa",
+          "https://schema.org/MasterCard",
+          "https://schema.org/AmericanExpress",
+          "https://schema.org/Discover",
+          "https://schema.org/PayPal",
+          "https://schema.org/CreditCard"
+        ]
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Zoracel Dental Gummy - 3 Bottle",
+      "sku": "Zoracel-Dental-Gummy-C",
+      "gtin13": 1230000000000.0,
+      "image": "https://zoracel-dental-gummy.vercel.app/hosted/zoracel-dental-gummy-3-bottle.webp",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "63",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://buy-tupitea.vercel.app/variant-3-bottles",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "price": "133",
+          "priceType": "RRP"
+        },
+        "discount": "430%",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "US"
+          },
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "4",
+            "currency": "USD"
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "US",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 64,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/FreeReturn",
+          "refundType": "https://schema.org/FullRefund"
+        },
+        "acceptedPaymentMethod": [
+          "https://schema.org/Visa",
+          "https://schema.org/MasterCard",
+          "https://schema.org/AmericanExpress",
+          "https://schema.org/Discover",
+          "https://schema.org/PayPal",
+          "https://schema.org/CreditCard"
+        ]
+      }
+    }
+  ],
+  "award": [
+    "Doctor Recommended Badge",
+    "Top Health Product 2029"
+  ],
+  "discount": "430%",
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "Zoracel Labs",
+    "logo": "https://zoracel-labs.com/logo.png"
+  },
+  "audience": {
+    "@type": "PeopleAudience",
+    "suggestedAgeMin": 18,
+    "suggestedGender": "Adults"
+  },
+  "productionDate": "6/5/2025",
+  "expirationDate": "6/5/2027",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://zoracel-dental-gummy.vercel.app/",
+    "inLanguage": "en"
+  }
+}
+</script>
