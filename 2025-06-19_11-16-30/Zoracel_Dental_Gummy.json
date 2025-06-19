@@ -10,7 +10,8 @@
   ],
   "brand": {
     "@type": "Brand",
-    "name": "Zoracel Dental Gummy"
+    "name": "Zoracel Dental Gummy",
+    "logo": "https://zoracel-dental-gummy.vercel.app/hosted/brand-logo.png"
   },
   "sku": "TUPI-001",
   "mpn": "TUPITEA-1001",

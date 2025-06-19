@@ -1,27 +1,27 @@
 import pandas as pd
-import json
 import os
+import json
 from datetime import datetime
 
-def make_variant(row, idx, discount):
-    name = row.get(f'variant{idx}_name')
-    sku = row.get(f'variant{idx}_sku')
-    gtin13 = row.get(f'variant{idx}_gtin13')
-    image = row.get(f'variant{idx}_image')
-    actual_price = row.get(f'variant{idx}_actual_price')
-    price = row.get(f'variant{idx}_price')
-    url = row.get(f'variant{idx}_url')
-    shippingCountry = row.get(f'variant{idx}_shippingCountry')
-    shippingCurrency = row.get(f'variant{idx}_shippingCurrency')
-    shippingValue = row.get(f'variant{idx}_shippingValue')
-    returnCountry = row.get(f'variant{idx}_returnCountry')
-    returnDays = row.get(f'variant{idx}_returnDays')
-    returnMethod = row.get(f'variant{idx}_returnMethod')
-    returnFees = row.get(f'variant{idx}_returnFees')
-    refundType = row.get(f'variant{idx}_refundType')
-    acceptedPaymentMethod = row.get(f'variant{idx}_acceptedPaymentMethod')
+def make_variant(row, i, discount):
+    name = row.get(f"variant{i}_name")
+    sku = row.get(f"variant{i}_sku")
+    gtin13 = row.get(f"variant{i}_gtin13")
+    image = row.get(f"variant{i}_image")
+    actual_price = row.get(f"variant{i}_actual_price")
+    price = row.get(f"variant{i}_price")
+    url = row.get(f"variant{i}_url")
+    shippingCountry = row.get(f"variant{i}_shippingCountry")
+    shippingCurrency = row.get(f"variant{i}_shippingCurrency")
+    shippingValue = row.get(f"variant{i}_shippingValue")
+    returnCountry = row.get(f"variant{i}_returnCountry")
+    returnDays = row.get(f"variant{i}_returnDays")
+    returnMethod = row.get(f"variant{i}_returnMethod")
+    returnFees = row.get(f"variant{i}_returnFees")
+    refundType = row.get(f"variant{i}_refundType")
+    acceptedPaymentMethod = row.get(f"variant{i}_acceptedPaymentMethod")
 
-    if pd.isna(name) or pd.isna(sku) or pd.isna(gtin13) or pd.isna(image) or pd.isna(price) or pd.isna(url):
+    if pd.isna(name) or name == "":
         return None
 
     offer = {
@@ -31,17 +31,14 @@ def make_variant(row, idx, discount):
         "priceValidUntil": "2025-12-31",
         "availability": "https://schema.org/InStock",
         "itemCondition": "https://schema.org/NewCondition",
-        "url": url
-    }
-
-    # Show MRP/actual price as priceSpecification
-    if not pd.isna(actual_price):
-        offer["priceSpecification"] = {
+        "url": url,
+        "priceSpecification": {
             "@type": "UnitPriceSpecification",
             "priceCurrency": "USD",
             "price": str(actual_price),
-            "priceType": "RRP"  # Recommended Retail Price
+            "priceType": "RRP"
         }
+    }
 
     # Add discount if available
     if discount and not pd.isna(discount):
@@ -111,6 +108,14 @@ def generate_schema(row):
             "suggestedGender": row.get('suitable_for')
         }
 
+    # Prepare brand info with logo
+    brand_obj = {
+        "@type": "Brand",
+        "name": row['brand']
+    }
+    if not pd.isna(row.get('brand_logo')):
+        brand_obj["logo"] = row['brand_logo']
+
     schema = {
         "@context": "https://schema.org/",
         "@type": "ProductGroup",
@@ -118,10 +123,7 @@ def generate_schema(row):
         "name": row['name'],
         "description": row['description'],
         "image": [row['image_url']],
-        "brand": {
-            "@type": "Brand",
-            "name": row['brand']
-        },
+        "brand": brand_obj,
         "sku": row['sku'],
         "mpn": row['mpn'],
         "gtin13": row['gtin13'],
