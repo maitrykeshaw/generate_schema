@@ -3,14 +3,14 @@ import json
 import os
 from datetime import datetime
 
-def make_variant(row, idx, product_url):
+def make_variant(row, idx):
     name = row.get(f'variant{idx}_name')
     sku = row.get(f'variant{idx}_sku')
     gtin13 = row.get(f'variant{idx}_gtin13')
     image = row.get(f'variant{idx}_image')
     actual_price = row.get(f'variant{idx}_actual_price')
     price = row.get(f'variant{idx}_price')
-    # url = row.get(f'variant{idx}_url')  # Now ignored, always using product_url
+    url = row.get(f'variant{idx}_url')
     shippingCountry = row.get(f'variant{idx}_shippingCountry')
     shippingCurrency = row.get(f'variant{idx}_shippingCurrency')
     shippingValue = row.get(f'variant{idx}_shippingValue')
@@ -21,7 +21,7 @@ def make_variant(row, idx, product_url):
     refundType = row.get(f'variant{idx}_refundType')
     acceptedPaymentMethod = row.get(f'variant{idx}_acceptedPaymentMethod')
 
-    if pd.isna(name) or pd.isna(sku) or pd.isna(gtin13) or pd.isna(image) or pd.isna(price) or pd.isna(product_url):
+    if pd.isna(name) or pd.isna(sku) or pd.isna(gtin13) or pd.isna(image) or pd.isna(price) or pd.isna(url):
         return None
 
     offer = {
@@ -31,7 +31,7 @@ def make_variant(row, idx, product_url):
         "priceValidUntil": "2025-12-31",
         "availability": "https://schema.org/InStock",
         "itemCondition": "https://schema.org/NewCondition",
-        "url": product_url  # Always use main product URL
+        "url": url
     }
 
     # Show MRP/actual price as priceSpecification
@@ -40,7 +40,7 @@ def make_variant(row, idx, product_url):
             "@type": "UnitPriceSpecification",
             "priceCurrency": "USD",
             "price": str(actual_price),
-            "priceType": "RRP"
+            "priceType": "RRP"  # Recommended Retail Price
         }
 
     if shippingCountry and shippingCurrency and shippingValue:
@@ -117,19 +117,8 @@ def generate_schema(row):
         ],
         "hasVariant": []
     }
-    # Product URL add karo
-    product_url = row['product_url'] if 'product_url' in row and not pd.isna(row['product_url']) else None
-    if product_url:
-        schema["url"] = product_url
-    # Key Benefits add karo agar hai
-    if 'key_benefits' in row and not pd.isna(row['key_benefits']):
-        schema["additionalProperty"].append({
-            "@type": "PropertyValue",
-            "name": "Key Benefits",
-            "value": row['key_benefits']
-        })
     for i in range(1, 10):
-        variant = make_variant(row, i, product_url)
+        variant = make_variant(row, i)
         if variant:
             schema["hasVariant"].append(variant)
     return schema
